@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusDirect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+<body class="bg-cyan-100 text-black">
+    <header class="flex justify-between items-center gap-2 bg-white px-3 py-2 shadow">
+        <article class="flex items-center gap-2">
+            <img class="w-10 h-10 bg-gray-300 rounded-full" src="./img/Logo.jpg" alt="Logo">
+            <h1 class="hidden sm:block text-xl font-bold">Bus Direct</h1>
+        </article>
+        <div class="Trajet flex flex-wrap justify-center items-center gap-2 text-sm sm:text-base">
+            <p class="bg-sky-100 border border-sky-400 rounded px-3 py-1"> Safi -> Marrakech</p>
+            <p class="prix bg-[#3D8EFF] text-white rounded px-3 py-1">80 DH/Place</p>
+        </div>
+        <article>
+            <img class="img-logo w-10 h-10 bg-indigo-700 rounded-full" src="#" alt="Photo de profile">
+        </article>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-3 grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
+        <section class="lg:col-span-2 bg-white border border-purple-500 rounded-lg overflow-hidden">
+            <p class="bg-[#3DC2FF] px-4 py-3 font-bold">Grille des 20 sièges de la cabine</p>
+            <div class="p-3 sm:p-4">
+                <div class="bg-sky-50 border border-sky-300 rounded p-2 mb-3 flex flex-wrap justify-between gap-x-4 gap-y-1 text-sm">
+                    <p>20 Places totales</p>
+                    <p><span id="disponibles">20</span> disponibles</p>
+                    <p>Recette : <span id="recette">0</span> DH</p>
+                    <div class="Legende flex gap-3">
+                        <span class="flex items-center gap-1"><span class="w-4 h-4 bg-white border border-gray-400 inline-block"></span> Libre</span>
+                        <span class="flex items-center gap-1"><span class="w-4 h-4 bg-red-300 border border-red-500 inline-block"></span> Occupé</span>
+                    </div>
+                </div>
+                <div id="grillePlaces" class="Places grid grid-cols-[1fr_1fr_1rem_1fr_1fr] gap-1 border border-gray-300 rounded p-2">
+                <article id="place-1" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">1</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-2" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">2</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-3" class="Place col-start-4 bg-red-300 border border-red-500 rounded p-1 text-center"><p class="numero font-bold">3</p><p class="statut text-xs truncate">Libre</p></article>
+                <article id="place-4" class="Place bg-red-300 border border-red-500 rounded p-1 text-center"><p class="numero font-bold">4</p><p class="statut text-xs truncate">Libre</p></article>
+                <article id="place-5" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">5</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-6" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">6</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-7" class="Place col-start-4 bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">7</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-8" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">8</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-9" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">9</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-10" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">10</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-11" class="Place col-start-4 bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">11</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-12" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">12</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-13" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">13</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-14" class="Place bg-red-300 border border-red-500 rounded p-1 text-center"><p class="numero font-bold">14</p><p class="statut text-xs truncate">Libre</p></article>
+                <article id="place-15" class="Place col-start-4 bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">15</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-16" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">16</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-17" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">17</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-18" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">18</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-19" class="Place col-start-4 bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">19</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-20" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">20</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                </div>
+            </div>
+        </section>
+        <div class="flex flex-col gap-4">
+            <!-- ----------resrvation------------------------------ -->
+            <section id="Section-Reserver" class="Section-Reserver bg-white border border-purple-500 rounded-lg overflow-hidden">
+                <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Réserver une Place</p>
+                <div class="Info flex flex-col gap-3 p-4">
+                    <input id="nomPassager" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Nom du passager">
+                    <select id="siegeReserver" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
+                    </select>
+                    <p id="messageReserver" class="hidden"></p>
+                    <button id="btnConfirmer" class="btn-reserver bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Confirmer</button>
+                </div>
+            </section>
+            <!-- --------------modification-------------------------- -->
+            <section id="sectionModifier" class="Section-Modifier bg-white border border-purple-500 rounded-lg overflow-hidden">
+                <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Modifier une Place</p>
+                <div class="Info flex flex-col gap-3 p-4">
+                    <select id="passagerModifier" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
+                    </select>
+                    <input id="nouveauNom" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Nouveau nom">
+                    <select id="siegeModifier" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
+                    </select>
+                    <p id="messageModifier" class="hidden"></p>
+                    <button id="btnModifier" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Modifier</button>
+                </div>
+            </section>
+            <!-- ----------------suppression---------------------------- -->
+            <section id="sectionSupprimer" class="Section-Supprimer bg-white border border-purple-500 rounded-lg overflow-hidden">
+                <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Supprimer une réservation</p>
+                <div class="Info flex flex-col gap-3 p-4">
+                    <select id="passagerSupprimer" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
+                    </select>
+                    <p id="messageSupprimer" class="hidden"></p>
+                    <button id="btnSupprimer" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Supprimer</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
