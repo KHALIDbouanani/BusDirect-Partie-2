@@ -33,13 +33,14 @@
                     <div class="Legende flex gap-3">
                         <span class="flex items-center gap-1"><span class="w-4 h-4 bg-white border border-gray-400 inline-block"></span> Libre</span>
                         <span class="flex items-center gap-1"><span class="w-4 h-4 bg-red-300 border border-red-500 inline-block"></span> Occupé</span>
+                        <span class="flex items-center gap-1"><span class="w-4 h-4 bg-amber-400 border border-amber-700 inline-block"></span> VIP</span>
                     </div>
                 </div>
                 <div id="grillePlaces" class="Places grid grid-cols-[1fr_1fr_1rem_1fr_1fr] gap-1 border border-gray-300 rounded p-2">
-                <article id="place-1" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">1</p><p class="statut text-xs text-gray-500">Libre</p></article>
-                <article id="place-2" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">2</p><p class="statut text-xs text-gray-500">Libre</p></article>
-                <article id="place-3" class="Place col-start-4 bg-red-300 border border-red-500 rounded p-1 text-center"><p class="numero font-bold">3</p><p class="statut text-xs truncate">Libre</p></article>
-                <article id="place-4" class="Place bg-red-300 border border-red-500 rounded p-1 text-center"><p class="numero font-bold">4</p><p class="statut text-xs truncate">Libre</p></article>
+                <article id="place-1" class="Place VIP bg-amber-400 border border-amber-700 rounded p-1 text-center"><p class="numero font-bold">1</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-2" class="Place VIP bg-amber-400 border border-amber-700 rounded p-1 text-center"><p class="numero font-bold">2</p><p class="statut text-xs text-gray-500">Libre</p></article>
+                <article id="place-3" class="Place VIP col-start-4 bg-amber-400 border border-amber-700 rounded p-1 text-center"><p class="numero font-bold">3</p><p class="statut text-xs truncate">Libre</p></article>
+                <article id="place-4" class="Place VIP bg-amber-400 border border-amber-700 rounded p-1 text-center"><p class="numero font-bold">4</p><p class="statut text-xs truncate">Libre</p></article>
                 <article id="place-5" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">5</p><p class="statut text-xs text-gray-500">Libre</p></article>
                 <article id="place-6" class="Place bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">6</p><p class="statut text-xs text-gray-500">Libre</p></article>
                 <article id="place-7" class="Place col-start-4 bg-white border border-gray-400 rounded p-1 text-center"><p class="numero font-bold">7</p><p class="statut text-xs text-gray-500">Libre</p></article>
@@ -65,6 +66,7 @@
                 <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Réserver une Place</p>
                 <div class="Info flex flex-col gap-3 p-4">
                     <input id="nomPassager" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Nom du passager">
+                    <input id="numéroPassager" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="06/07 XX XX XX XX">
                     <select id="siegeReserver" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
                     </select>
                     <p id="messageReserver" class="hidden"></p>
@@ -92,6 +94,15 @@
                     </select>
                     <p id="messageSupprimer" class="hidden"></p>
                     <button id="btnSupprimer" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Supprimer</button>
+                </div>
+            </section>
+            <!-- ----------------Liste d'attente------------------------ -->
+            <section id="sectionListAttente" class="Section-List bg-white border border-purple-500 rounded-lg overflow-hidden">
+                <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Liste d'attente</p>
+                <div class="Info flex flex-col gap-3 p-4">
+                    <input id="NomListAttente" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Entrer votre nom">
+                    <p id="messageListAttente" class="hidden"></p>
+                    <button id="btnListAttente" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Confirmer</button>
                 </div>
             </section>
         </div>
