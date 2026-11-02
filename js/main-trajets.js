@@ -1,2 +1,3 @@
-import {test} from './store.js';
-console.log(test);
+import {initialiser} from './store.js';
+const trips = await initialiser();
+console.log(trips);
