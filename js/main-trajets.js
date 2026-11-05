@@ -22,3 +22,11 @@ const totalPlacesTotales = trips.reduce((acc, trip) => { return acc + trip.capac
 totalprix_text.textContent = `${totalPrix} DH`;
 placesDisponibles_text.textContent = `${totalPlacesDisponibles} places`;
 placesTotales_text.textContent = `${totalPlacesTotales} places`;
+
+// jour 4 
+import {renderTrips,handleFilter} from './render.js';
+renderTrips(trips, 1, 6);
+const searchInput = document.getElementById("recherchet");
+const statusSelector = document.getElementById("filtreStatut");
+searchInput.addEventListener("input", () => handleFilter(trips));
+statusSelector.addEventListener("change", () => handleFilter(trips));

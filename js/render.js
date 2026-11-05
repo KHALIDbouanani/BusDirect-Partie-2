@@ -40,3 +40,103 @@ export async function insertion(parent,trip) {
         </div>
     </article>`
 }
+
+// jour 4
+export function renderTrips(modifiedTrips, page, size) {
+  if (modifiedTrips === undefined || modifiedTrips === null) {
+    modifiedTrips = trips;
+  }
+    
+  if (page === undefined || page === null) {
+    page = 1;
+  }
+
+  if (size === undefined || size === null) {
+    size = 6;
+  }
+
+  let listeTrajets = document.getElementById("listeTrajets");
+  listeTrajets.innerHTML = "";
+
+  let startIndex = (page - 1) * size;
+  let endEndex = startIndex + size;
+
+  let selectedTrips = modifiedTrips.slice(startIndex, endEndex);
+
+  selectedTrips.forEach((trip) => {insertion(listeTrajets, trip)});
+  rederPagination(modifiedTrips, page, modifiedTrips.length, size)
+}
+
+export function handleFilter(trips) {
+    const serchCity = document.getElementById("recherchet");
+    const statusSelector = document.getElementById("filtreStatut");      
+    const city = serchCity.value.toLocaleLowerCase().trim();
+    const status = statusSelector.value;
+    const filtredTrips = trips.filter((trip) => {
+
+    const matchCity = trip.departure.toLocaleLowerCase().includes(city) || trip.destination.toLocaleLowerCase().includes(city);
+    let matchFilter = false;
+    if (status === "tout") {
+      matchFilter = true;
+    } else if (status === "disponible") {
+      matchFilter = trip.capacity > trip.reservations.length;
+    } else if (status === "complete") {
+      matchFilter = trip.capacity === trip.reservations.length;
+    }    
+    return matchCity && matchFilter;
+    });
+    if (filtredTrips.length === 0) {
+        const pagination = document.getElementById("pagination");
+        const listeTrajets = document.getElementById("listeTrajets");
+        listeTrajets.innerHTML = "<p class='col-span-3 text-center text-lg border border-red-600 bg-red-200 font-semibold text-red-600 rounded'>Aucun trajet trouvé</p>";
+        pagination.innerHTML = "";
+        return;
+    } else {
+        renderTrips(filtredTrips, 1, 6);
+    }
+}
+
+function rederPagination(modifiedTrips, courantPage, totalElement, pageSize) {
+  const paginationHTML = document.getElementById("pagination");
+  paginationHTML.innerHTML = "";
+
+  let totalPages = Math.ceil(totalElement / pageSize);
+
+  if (totalPages <= 1) {
+    return;
+  }
+  if (courantPage > 1) {
+    const prevBtn = document.createElement("button");
+    prevBtn.innerHTML = "&lt;";
+    prevBtn.className = "block rounded bg-[#3D8EFF] px-3 py-1 font-bold text-white hover:text-black";
+    prevBtn.addEventListener("click", () => {
+      renderTrips(modifiedTrips, courantPage - 1, pageSize);
+    });
+    paginationHTML.appendChild(prevBtn);
+  }
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+
+    if (i === courantPage) {
+      btn.className = "block rounded bg-[#3D8EFF] px-3 py-1 font-bold text-white hover:text-black";
+    } else {
+      btn.className = "block rounded bg-white px-3 py-1 hover:bg-sky-100";
+    }
+
+    btn.addEventListener("click", () => {
+      renderTrips(modifiedTrips, i, pageSize);
+    });
+
+    paginationHTML.appendChild(btn);
+  }
+  if (courantPage < totalPages) {
+    const nextBtn = document.createElement("button");
+    nextBtn.innerHTML = "&gt;";
+    nextBtn.className = "block rounded bg-[#3D8EFF] px-3 py-1 font-bold text-white hover:text-black";
+    nextBtn.addEventListener("click", () => {
+      renderTrips(modifiedTrips, courantPage + 1, pageSize);
+    });
+    paginationHTML.appendChild(nextBtn);
+  }
+}
