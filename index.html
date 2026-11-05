@@ -6,7 +6,6 @@
     <title>BusDirect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/src/output.css">
-    <script type="module" src="js/main-trajets.js"></script>
 </head>
 <body class="bg-cyan-100 text-black">
     <header class="flex justify-between items-center gap-2 bg-white px-3 py-2 shadow-lg">
@@ -19,19 +18,19 @@
         </article>
     </header>
     <main class="max-w-6xl mx-auto p-3 grid grid-cols-1 gap-4 items-start">
-        <section class="info grid grid-cols-3 gap-1 text-lg text-center bg-sky-100 border border-purple-500 rounded-lg shadow-2xl overflow-hidden">
-            <p class="col-span-3 bg-[#3DC2FF] px-4 py-3 text-start font-bold">Information générales</p>
-            <div class=" p-1 m-2 bg-sky-300 border border-sky-950 rounded-lg overflow-hidden">
+        <section class="info grid grid-cols-3 gap-1 text-lg text-center bg-sky-200 border border-purple-500 rounded-lg shadow-2xl">
+            <p class="col-span-3 bg-[#3DC2FF] rounded-t-lg px-4 py-3 text-start font-bold">Information générales</p>
+            <div class=" p-1 m-2 bg-sky-300 border border-sky-950 rounded-lg">
                 <p class="text-sm">Prix total</p>
-                <p class="font-bold">11 520 DH</p>
+                <p id="prixTotal" class="font-bold"></p>
             </div>
-            <div class="p-1 m-2 bg-sky-300 border border-sky-950 rounded-lg overflow-hidden">
+            <div class="p-1 m-2 bg-sky-300 border border-sky-950 rounded-lg">
                 <p class="text-sm">Places disponible</p>
-                <p class="font-bold">180</p>
+                <p id="placesDisponibles" class="font-bold"></p>
             </div>
-            <div class="p-1 m-2 bg-sky-300 border border-sky-950 rounded-lg overflow-hidden">
+            <div class="p-1 m-2 bg-sky-300 border border-sky-950 rounded-lg">
                 <p class="text-sm">Places totales</p>
-                <p class="font-bold">400</p>
+                <p id="placesTotales" class="font-bold"></p>
             </div>
         </section>
 
@@ -40,14 +39,14 @@
             <form class="grid md:grid-cols-2 gap-3 p-4" >
                 <div>
                     <label for="recherche" class="mb-1 text-sm font-medium">Recherche</label>
-                    <input type="text" id="recherchet" name="recherche" placeholder="Chercher une ville" class="w-full bg-white border border-purple-500 rounded p-2">
+                    <input type="input" id="recherchet" name="recherche" placeholder="Chercher une ville" class="w-full bg-white border border-purple-500 rounded p-2">
                 </div>
                 <div>
                     <label for="filtreStatut" class="mb-1 text-sm font-medium">Statut</label>
                     <select id="filtreStatut" name="filtreStatut" class="w-full bg-whit border border-purple-500 rounded p-2">
-                        <option >Tous</option>
-                        <option >Disponible</option>
-                        <option >Complet</option>
+                        <option value="tout">Tous</option>
+                        <option value="disponible">Disponible</option>
+                        <option value="complete">Complet</option>
                     </select>
                 </div>
             </form>
@@ -55,42 +54,45 @@
 
         <section class="trajets">
             <p class="mb-2 font-bold">Trajets</p>
-            <div id="listeTrajets" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <article class="flex flex-col rounded-lg border border-purple-500 bg-white overflow-hidden">
-                    <div class="flex items-center justify-between bg-[#3DC2FF] px-4 py-2">
-                        <p class="text-lg font-bold">Bus Direct</p><span class="rounded-full border border-green-400 bg-green-200 px-3 py-0.5 text-sm font-semibold">Disponible</span>
-                    </div>
-                    <div class="grid grid-cols-3 items-center gap-2 p-4">
-                        <div class="text-start">
-                            <p class="text-lg font-bold">Safi</p>
-                            <p class="text-sm text-gray-600">Départ 10:00</p>
+            <div id="Trajets">
+                <div id="listeTrajets" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <article class="flex flex-col rounded-lg border border-purple-500 bg-white overflow-hidden">
+                        <div class="flex items-center justify-between bg-[#3DC2FF] px-4 py-2">
+                            <p class="text-lg font-bold">Bus Direct</p><span class="rounded-full border border-green-400 bg-green-200 px-3 py-0.5 text-sm font-semibold">Disponible</span>
                         </div>
-                        <p class="text-2xl text-center text-[#3D8EFF]">&rarr;</p>
-                        <div class="text-end">
-                            <p class="text-lg font-bold">Marrakech</p>
-                            <p class="text-sm text-gray-600">Arrivée 14:00</p>
+                        <div class="grid grid-cols-3 items-center gap-2 p-4">
+                            <div class="text-start">
+                                <p class="text-lg font-bold">Safi</p>
+                                <p class="text-sm text-gray-600">Départ 10:00</p>
+                            </div>
+                            <p class="text-2xl text-center text-[#3D8EFF]">&rarr;</p>
+                            <div class="text-end">
+                                <p class="text-lg font-bold">Marrakech</p>
+                                <p class="text-sm text-gray-600">Arrivée 14:00</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex flex-col gap-3 p-4">
+                        <div class="flex flex-col gap-3 p-4">
                         <div class="flex items-center justify-between">
-                            <p class="text-sm font-bold">Prix</p>
-                            <p class="text-xl font-bold text-red-700">70 DH</p>
+                                <p class="text-sm font-bold">Prix</p>
+                                <p class="text-xl font-bold text-red-700">70 DH</p>
+                            </div>
+                            <div>
+                                <p class="flex justify-between text-sm font-bold">Sièges disponibles <span class="font-normal">7/20</span></p>
+                            </div>
+                            <p class="flex justify-between text-sm font-bold">Liste d'attente <span class="font-normal">0</span></p>
+                            <a href="cabine.html" class="self-end rounded bg-[#3D8EFF] px-6 py-2 text-white hover:bg-blue-600 hover:rounded-xl">Voir le trajet</a>
                         </div>
-                        <div>
-                            <p class="flex justify-between text-sm font-bold">Sièges disponibles <span class="font-normal">7/20</span></p>
-                        </div>
-                        <p class="flex justify-between text-sm font-bold">Liste d'attente <span class="font-normal">0</span></p>
-                        <a href="cabine.html" class="self-end rounded bg-[#3D8EFF] px-6 py-2 text-white hover:bg-blue-600 hover:rounded-xl">Voir le trajet</a>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </div>
-            <nav id="pagination" class="mt-4">
-                <ul class="flex flex-wrap items-center justify-center gap-2">
+            <nav class="mt-4">
+                <ul id="pagination" class="flex flex-wrap items-center justify-center gap-2">
                     <li class="block rounded bg-[#3D8EFF] px-3 py-1 font-bold text-white hover:text-black">1</li>
                     <li class="block rounded bg-white px-3 py-1 hover:bg-sky-100">2</li>
                 </ul>
             </nav>
         </section>
     </main>
+    <script type="module" src="js/main-trajets.js"></script>
 </body>
 </html>
