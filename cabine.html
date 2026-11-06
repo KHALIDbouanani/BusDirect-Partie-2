@@ -67,45 +67,55 @@
             <!-- ----------resrvation------------------------------ -->
             <section id="Section-Reserver" class="Section-Reserver bg-white border border-purple-500 rounded-lg overflow-hidden">
                 <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Réserver une Place</p>
-                <div class="Info flex flex-col gap-3 p-4">
-                    <input id="nomPassager" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Nom du passager">
-                    <input id="numéroPassager" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="06/07 XX XX XX XX">
-                    <select id="siegeReserver" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
-                    </select>
-                    <p id="messageReserver" class="hidden"></p>
-                    <button id="btnConfirmer" class="btn-reserver bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Confirmer</button>
-                </div>
+                <form id="formReserver" class="Info p-4" novalidate>
+                    <fieldset id="fieldsetReserver" class="flex flex-col gap-3 disabled:opacity-50">
+                        <input id="nomPassager" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Nom du passager">
+                        <p id="erreurNom" class="hidden text-sm text-red-600"></p>
+                        <input id="numéroPassager" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="06/07 XX XX XX XX">
+                        <p id="erreurTelephone" class="hidden text-sm text-red-600"></p>
+                        <select id="siegeReserver" class="bg-[#C6CDD5] border border-gray-500 rounded p-2"></select>
+                        <p id="erreurSiege" class="hidden text-sm text-red-600"></p>
+                        <p id="messageReserver" class="hidden"></p>
+                        <button id="btnConfirmer" type="submit" class="btn-reserver bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Confirmer</button>
+                    </fieldset>
+                </form>
             </section>
             <!-- --------------modification-------------------------- -->
             <section id="sectionModifier" class="Section-Modifier bg-white border border-purple-500 rounded-lg overflow-hidden">
                 <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Modifier une Place</p>
-                <div class="Info flex flex-col gap-3 p-4">
-                    <select id="passagerModifier" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
-                    </select>
+                <form id="formModifier" class="Info flex flex-col gap-3 p-4" novalidate>
+                    <select id="passagerModifier" class="bg-[#C6CDD5] border border-gray-500 rounded p-2"></select>
                     <input id="nouveauNom" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Nouveau nom">
-                    <select id="siegeModifier" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
-                    </select>
+                    <input id="telephoneModifier" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="06/07 XX XX XX XX">
+                    <select id="siegeModifier" class="bg-[#C6CDD5] border border-gray-500 rounded p-2"></select>
                     <p id="messageModifier" class="hidden"></p>
-                    <button id="btnModifier" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Modifier</button>
-                </div>
+                    <button id="btnModifier" type="submit" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Modifier</button>
+                </form>
             </section>
+
             <!-- ----------------suppression---------------------------- -->
             <section id="sectionSupprimer" class="Section-Supprimer bg-white border border-purple-500 rounded-lg overflow-hidden">
                 <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Supprimer une réservation</p>
                 <div class="Info flex flex-col gap-3 p-4">
-                    <select id="passagerSupprimer" class="bg-[#C6CDD5] border border-gray-500 rounded p-2">
-                    </select>
+                    <select id="passagerSupprimer" class="bg-[#C6CDD5] border border-gray-500 rounded p-2"></select>
                     <p id="messageSupprimer" class="hidden"></p>
                     <button id="btnSupprimer" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Supprimer</button>
                 </div>
             </section>
+
             <!-- ----------------Liste d'attente------------------------ -->
             <section id="sectionListAttente" class="Section-List bg-white border border-purple-500 rounded-lg overflow-hidden">
                 <p class="Action bg-[#3DC2FF] px-4 py-3 font-bold">Liste d'attente</p>
                 <div class="Info flex flex-col gap-3 p-4">
-                    <input id="NomListAttente" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Entrer votre nom">
-                    <p id="messageListAttente" class="hidden"></p>
-                    <button id="btnListAttente" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Confirmer</button>
+                    <form id="formAttente" class="flex flex-col gap-3" novalidate>
+                        <fieldset id="fieldsetAttente" class="flex flex-col gap-3 disabled:opacity-50" disabled>
+                            <input id="NomListAttente" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="Entrer votre nom">
+                            <input id="telephoneListAttente" class="bg-[#C6CDD5] border border-gray-500 rounded p-2" type="text" placeholder="06/07 XX XX XX XX">
+                            <button id="btnListAttente" type="submit" class="bg-[#3D8EFF] text-white rounded px-6 py-2 self-end">Confirmer</button>
+                        </fieldset>
+                        <p id="messageListAttente" class="hidden"></p>
+                    </form>
+                    <ul id="listeAttente" class="flex flex-col gap-2"></ul>
                 </div>
             </section>
         </div>
