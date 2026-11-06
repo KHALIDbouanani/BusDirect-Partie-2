@@ -19,10 +19,10 @@ export async function initialiser(){
     }
     const trips = await chargeDonnees();
     if(trips){
-        sauvegarder()
+        sauvegarder(trips)
     }
     return trips
 }
-export function sauvegarder() {
+export function sauvegarder(trips) {
     localStorage.setItem("trips",JSON.stringify(trips));
 }

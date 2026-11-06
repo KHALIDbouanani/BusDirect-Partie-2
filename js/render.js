@@ -1,6 +1,6 @@
 // jour 3
 import {disponibilité} from "./reservations.js";
-export async function insertion(parent,trip) {
+export function insertion(parent,trip) {
     const disponible = disponibilité(trip)? 'border border-green-400 bg-green-200' : 'border border-red-400 bg-red-200';
     const dispo_text = disponibilité(trip)? "Disponible" : "Complet";
     const {departure,destination,departureTime,arrivalTime,price,capacity,reservations,waitingList} = trip;

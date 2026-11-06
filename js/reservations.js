@@ -21,3 +21,29 @@ export function prixSiege(prix, numero) {
     }
     return prix;
 }
+// jour 6
+export function siegeLibre(trip, numero) {
+    return !trip.reservations.some(r => r.seat === numero);
+}
+
+export function siegesLibres(trip) {
+    const libres = [];
+    for (let num = 1; num <= trip.capacity; num++) {
+        if (siegeLibre(trip, num)) libres.push(num);
+    }
+    return libres;
+}
+
+export function siegeAutomatique(trip) {
+    for (let num = 5; num <= trip.capacity; num++) {
+        if (siegeLibre(trip, num)){
+            return num;
+        }
+    }
+    return null;
+}
+
+export function libelleSiege(prix, numero) {
+    const type = estVIP(numero) ? "VIP" : "Standard";
+    return `Siège ${numero} — ${type} ${prixSiege(prix, numero)} DH`;
+}
